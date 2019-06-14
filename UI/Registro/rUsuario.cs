@@ -39,6 +39,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
             NombrestextBox.Clear();
             UsernametextBox.Clear();
             ContraseñatextBox.Clear();
+            ConfirmartextBox.Clear();
             MyErrorProvider.Clear();
         }
 
@@ -85,6 +86,13 @@ namespace ProyectoAnalisisMedico.UI.Registro
                 estado = true;
             }
 
+            if (String.IsNullOrWhiteSpace(ConfirmartextBox.Text))
+            {
+                MyErrorProvider.SetError(ConfirmartextBox,
+                    "No puede estar vacio");
+                estado = true;
+            }
+
             return estado;
         }
 
@@ -99,6 +107,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
                 NombrestextBox.Text = usuario.Nombres;
                 UsernametextBox.Text = usuario.Username;
                 ContraseñatextBox.Text = usuario.Contraseña;
+                ConfirmartextBox.Text = usuario.Contraseña;
             }
             else
                 MessageBox.Show("No se encontró", "Falló",
@@ -112,43 +121,52 @@ namespace ProyectoAnalisisMedico.UI.Registro
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
+            bool paso = false;
             Usuarios usuario = new Usuarios();
-            bool Estado = false;
 
             if (Validar())
             {
-                MessageBox.Show("Debe llenar todos los campos que se indican!!!", "Validación",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Llene los campos correctamente", "Falló",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            usuario = LlenaClase();
-
-            if (IdNumericUpDown.Value == 0)
-                Estado = UsuariosBLL.Guardar(usuario);
             else
             {
-                int id = Convert.ToInt32(IdNumericUpDown.Value);
-                usuario = UsuariosBLL.Buscar(id);
+                usuario = LlenaClase();
 
-                if (usuario != null)
+                if (Convert.ToInt32(IdNumericUpDown.Value) == 0)
                 {
-                    Estado = UsuariosBLL.Editar(LlenaClase());
+                    paso = UsuariosBLL.Guardar(usuario);
+                    MessageBox.Show("Guardado", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
                 }
                 else
-                    MessageBox.Show("Id no existe", "Falló",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                {
 
-            if (Estado)
-            {
-                MessageBox.Show("Modificado", "Exito",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Limpiar();
+                    int id = Convert.ToInt32(IdNumericUpDown.Value);
+                    Usuarios usu = new Usuarios();
+                    usu = UsuariosBLL.Buscar(id);
+
+                    if (usu != null)
+                    {
+                        paso = UsuariosBLL.Editar(LlenaClase());
+                        MessageBox.Show("Modificado", "Exito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Id no existe", "Falló",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (paso)
+                {
+                    Limpiar();
+                }
+                else
+                    MessageBox.Show("No se pudo guardar", "Falló",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                MessageBox.Show("No se pudo guardar", "Falló",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)

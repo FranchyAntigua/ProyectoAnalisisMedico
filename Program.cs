@@ -16,7 +16,7 @@ namespace ProyectoAnalisisMedico
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new rUsuario());
+            Application.Run(new Menu());
         }
     }
 }

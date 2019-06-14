@@ -16,6 +16,8 @@ namespace ProyectoAnalisisMedico.Entidades
 
         public int TipoId { get; set; }
 
+        public string Descripcion { get; set; }
+
         public string Resultado { get; set; }
 
 
@@ -24,14 +26,16 @@ namespace ProyectoAnalisisMedico.Entidades
             Id = 0;
             AnalisisId = 0;
             TipoId = 0;
+            Descripcion = string.Empty;
             Resultado = string.Empty;
         }
 
-        public AnalisisDetalle(int id, int analisisId, int tipoId, string resultado)
+        public AnalisisDetalle(int id, int analisisId, int tipoId, string descripcion, string resultado)
         {
             Id = id;
             AnalisisId = analisisId;
             TipoId = tipoId;
+            Descripcion = descripcion;
             Resultado = resultado;
         }
     }

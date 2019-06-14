@@ -78,43 +78,52 @@ namespace ProyectoAnalisisMedico.UI.Registro
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
+            bool paso = false;
             TiposAnalisis tipo = new TiposAnalisis();
-            bool Estado = false;
 
             if (Validar())
             {
-                MessageBox.Show("Debe llenar todos los campos que se indican!!!", "Validación",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Llene los campos correctamente", "Falló",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            tipo = LlenaClase();
-
-            if (IdnumericUpDown.Value == 0)
-                Estado = TiposAnalisisBLL.Guardar(tipo);
             else
             {
-                int id = Convert.ToInt32(IdnumericUpDown.Value);
-                tipo = TiposAnalisisBLL.Buscar(id);
+                tipo = LlenaClase();
 
-                if (tipo != null)
+                if (Convert.ToInt32(IdnumericUpDown.Value) == 0)
                 {
-                    Estado = TiposAnalisisBLL.Editar(LlenaClase());
+                    paso = TiposAnalisisBLL.Guardar(tipo);
+                    MessageBox.Show("Guardado", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
                 }
                 else
-                    MessageBox.Show("Id no existe", "Falló",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                {
+                    
+                    int id = Convert.ToInt32(IdnumericUpDown.Value);
+                    TiposAnalisis tiposAnalisis = new TiposAnalisis();
+                    tiposAnalisis = TiposAnalisisBLL.Buscar(id);
 
-            if (Estado)
-            {
-                MessageBox.Show("Modificado", "Exito",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Limpiar();
+                    if (tiposAnalisis != null)
+                    {
+                        paso = TiposAnalisisBLL.Editar(LlenaClase());
+                        MessageBox.Show("Modificado", "Exito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Id no existe", "Falló",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (paso)
+                {
+                    Limpiar();
+                }
+                else
+                    MessageBox.Show("No se pudo guardar", "Falló",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                MessageBox.Show("No se pudo guardar", "Falló",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)

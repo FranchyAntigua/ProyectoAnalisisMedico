@@ -18,6 +18,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
         public rAnalisis()
         {
             InitializeComponent();
+            LlenarComboBox();
         }
 
         private void LlenarCampos(Analisis analisis)
@@ -28,14 +29,13 @@ namespace ProyectoAnalisisMedico.UI.Registro
             AnalisisDataGridView.DataSource = analisis.Detalle;
 
             AnalisisDataGridView.Columns["Id"].Visible = false;
-            AnalisisDataGridView.Columns["MantenimientoId"].Visible = false;
-            AnalisisDataGridView.Columns["UsuarioId"].Visible = false;
+            AnalisisDataGridView.Columns["AnalisisId"].Visible = false;
         }
 
         private void LlenarComboBox()
         {
             Repositorio<Usuarios> repositorioU = new Repositorio<Usuarios>();
-            Repositorio<Usuarios> repositorioT = new Repositorio<Usuarios>();
+            Repositorio<TiposAnalisis> repositorioT = new Repositorio<TiposAnalisis>();
 
             UsuarioComboBox.DataSource = repositorioU.GetList(c => true);
             UsuarioComboBox.ValueMember = "UsuarioId";
@@ -61,13 +61,10 @@ namespace ProyectoAnalisisMedico.UI.Registro
                     Convert.ToInt32(item.Cells["Id"].Value),
                     Convert.ToInt32(item.Cells["AnalisisId"].Value),
                     Convert.ToInt32(item.Cells["TipoId"].Value),
-                    item.Cells["Articulo"].ToString()
+                    item.Cells["Descripcion"].Value.ToString(),
+                    item.Cells["Resultado"].Value.ToString()
                 );
             }
-
-            AnalisisDataGridView.Columns["Id"].Visible = false;
-            AnalisisDataGridView.Columns["AnalisisId"].Visible = false;
-            AnalisisDataGridView.Columns["UsuarioId"].Visible = false;
 
             return analisis;
         }
@@ -79,6 +76,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
             UsuarioComboBox.SelectedIndex = 0;
             TipocomboBox.SelectedIndex = 0;
             ResultadotextBox.Clear();
+            AnalisisDataGridView.DataSource = null;
             MyErrorProvider.Clear();
         }
 
@@ -86,7 +84,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
         {
             bool estado = false;
 
-            if (String.IsNullOrWhiteSpace(ResultadotextBox.Text))
+            if (AnalisisDataGridView.RowCount == 0)
             {
                 MyErrorProvider.SetError(ResultadotextBox,
                     "No puede estar vacio");
@@ -99,11 +97,16 @@ namespace ProyectoAnalisisMedico.UI.Registro
         private void AgregarButton_Click(object sender, EventArgs e)
         {
             List<AnalisisDetalle> detalle = new List<AnalisisDetalle>();
-
-            if (AnalisisDataGridView.DataSource != null)
+            if (String.IsNullOrWhiteSpace(ResultadotextBox.Text))
+            {
+                MyErrorProvider.SetError(ResultadotextBox,
+                    "No puede estar vacio");
+                return;
+            }
+            else if (AnalisisDataGridView.DataSource != null)
             {
                 detalle = (List<AnalisisDetalle>)AnalisisDataGridView.DataSource;
-            }
+            }            
             else
             {
                 detalle.Add(
@@ -111,12 +114,14 @@ namespace ProyectoAnalisisMedico.UI.Registro
                    id: 0,
                    analisisId: (int)IdnumericUpDown.Value,
                    tipoId: (int)TipocomboBox.SelectedValue,
+                   descripcion: TipocomboBox.Text,
                    resultado: ResultadotextBox.Text
-               ));
+               ));                
 
                 AnalisisDataGridView.DataSource = null;
                 AnalisisDataGridView.DataSource = detalle;
-
+                AnalisisDataGridView.Columns["Id"].Visible = false;
+                AnalisisDataGridView.Columns["AnalisisId"].Visible = false;
             }
         }
 

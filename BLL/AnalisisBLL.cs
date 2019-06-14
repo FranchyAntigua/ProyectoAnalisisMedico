@@ -81,12 +81,16 @@ namespace ProyectoAnalisisMedico.BLL
             try
             {
                 analisis = contexto.Analisis.Find(id);
-                contexto.Dispose();
+                analisis.Detalle.Count();
             }
             catch (Exception)
             {
 
                 throw;
+            }
+            finally
+            {
+                contexto.Dispose();
             }
             return analisis;
         }

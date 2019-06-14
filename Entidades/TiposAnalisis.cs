@@ -19,5 +19,10 @@ namespace ProyectoAnalisisMedico.Entidades
             this.TipoId = 0;
             this.Descripcion = string.Empty;
         }
+
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }

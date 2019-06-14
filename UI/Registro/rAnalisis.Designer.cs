@@ -47,6 +47,7 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
+            this.RemoverButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalisisDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
@@ -115,9 +116,9 @@
             // AnalisisDataGridView
             // 
             this.AnalisisDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AnalisisDataGridView.Location = new System.Drawing.Point(220, 10);
+            this.AnalisisDataGridView.Location = new System.Drawing.Point(227, 10);
             this.AnalisisDataGridView.Name = "AnalisisDataGridView";
-            this.AnalisisDataGridView.Size = new System.Drawing.Size(332, 218);
+            this.AnalisisDataGridView.Size = new System.Drawing.Size(332, 245);
             this.AnalisisDataGridView.TabIndex = 105;
             // 
             // TipocomboBox
@@ -156,12 +157,12 @@
             // 
             // AgregarButton
             // 
-            this.AgregarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgregarButton.Location = new System.Drawing.Point(184, 130);
+            this.AgregarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgregarButton.Location = new System.Drawing.Point(42, 163);
             this.AgregarButton.Name = "AgregarButton";
-            this.AgregarButton.Size = new System.Drawing.Size(30, 30);
+            this.AgregarButton.Size = new System.Drawing.Size(63, 30);
             this.AgregarButton.TabIndex = 110;
-            this.AgregarButton.Text = "+";
+            this.AgregarButton.Text = "Agregar";
             this.AgregarButton.UseVisualStyleBackColor = true;
             this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
@@ -172,7 +173,7 @@
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_eliminar_26;
-            this.Eliminarbutton.Location = new System.Drawing.Point(157, 179);
+            this.Eliminarbutton.Location = new System.Drawing.Point(159, 206);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(57, 49);
             this.Eliminarbutton.TabIndex = 104;
@@ -182,7 +183,7 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.New_File_36861_1_;
-            this.Nuevobutton.Location = new System.Drawing.Point(13, 179);
+            this.Nuevobutton.Location = new System.Drawing.Point(15, 206);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(57, 49);
             this.Nuevobutton.TabIndex = 103;
@@ -192,7 +193,7 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_guardar_48;
-            this.Guardarbutton.Location = new System.Drawing.Point(85, 179);
+            this.Guardarbutton.Location = new System.Drawing.Point(87, 206);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(57, 49);
             this.Guardarbutton.TabIndex = 102;
@@ -209,11 +210,22 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
+            // RemoverButton
+            // 
+            this.RemoverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoverButton.Location = new System.Drawing.Point(123, 163);
+            this.RemoverButton.Name = "RemoverButton";
+            this.RemoverButton.Size = new System.Drawing.Size(71, 30);
+            this.RemoverButton.TabIndex = 111;
+            this.RemoverButton.Text = "Remover";
+            this.RemoverButton.UseVisualStyleBackColor = true;
+            // 
             // rAnalisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 245);
+            this.ClientSize = new System.Drawing.Size(571, 269);
+            this.Controls.Add(this.RemoverButton);
             this.Controls.Add(this.AgregarButton);
             this.Controls.Add(this.ResultadotextBox);
             this.Controls.Add(this.label5);
@@ -260,5 +272,6 @@
         private System.Windows.Forms.TextBox ResultadotextBox;
         private System.Windows.Forms.Button AgregarButton;
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
+        private System.Windows.Forms.Button RemoverButton;
     }
 }

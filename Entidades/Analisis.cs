@@ -23,9 +23,9 @@ namespace ProyectoAnalisisMedico.Entidades
             this.Detalle = new List<AnalisisDetalle>();
         }
 
-        public void AgregarDetalle(int Id, int AnalisisId, int TipoId, string Resultado)
+        public void AgregarDetalle(int Id, int AnalisisId, int TipoId, string Descripcion, string Resultado)
         {
-            this.Detalle.Add(new AnalisisDetalle(Id, AnalisisId, TipoId, Resultado));
+            this.Detalle.Add(new AnalisisDetalle(Id, AnalisisId, TipoId, Descripcion, Resultado));
         }
         
     }
