@@ -1,6 +1,6 @@
 ﻿namespace ProyectoAnalisisMedico.UI.Registro
 {
-    partial class Analisis
+    partial class rAnalisis
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.IdnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.AnalisisId = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,18 +36,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.UsuarioComboBox = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AnalisisDataGridView = new System.Windows.Forms.DataGridView();
             this.TipocomboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.ResultadotextBox = new System.Windows.Forms.TextBox();
+            this.AgregarButton = new System.Windows.Forms.Button();
+            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.AgregarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AnalisisDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // IdnumericUpDown
@@ -109,13 +112,13 @@
             this.UsuarioComboBox.Size = new System.Drawing.Size(108, 21);
             this.UsuarioComboBox.TabIndex = 100;
             // 
-            // dataGridView1
+            // AnalisisDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(220, 10);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(332, 218);
-            this.dataGridView1.TabIndex = 105;
+            this.AnalisisDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AnalisisDataGridView.Location = new System.Drawing.Point(220, 10);
+            this.AnalisisDataGridView.Name = "AnalisisDataGridView";
+            this.AnalisisDataGridView.Size = new System.Drawing.Size(332, 218);
+            this.AnalisisDataGridView.TabIndex = 105;
             // 
             // TipocomboBox
             // 
@@ -151,42 +154,6 @@
             this.ResultadotextBox.Size = new System.Drawing.Size(108, 20);
             this.ResultadotextBox.TabIndex = 109;
             // 
-            // Eliminarbutton
-            // 
-            this.Eliminarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_eliminar_26;
-            this.Eliminarbutton.Location = new System.Drawing.Point(157, 179);
-            this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(57, 49);
-            this.Eliminarbutton.TabIndex = 104;
-            this.Eliminarbutton.UseVisualStyleBackColor = true;
-            // 
-            // Nuevobutton
-            // 
-            this.Nuevobutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_añadir_48_1_;
-            this.Nuevobutton.Location = new System.Drawing.Point(13, 179);
-            this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(57, 49);
-            this.Nuevobutton.TabIndex = 103;
-            this.Nuevobutton.UseVisualStyleBackColor = true;
-            // 
-            // Guardarbutton
-            // 
-            this.Guardarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_guardar_48;
-            this.Guardarbutton.Location = new System.Drawing.Point(85, 179);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(57, 49);
-            this.Guardarbutton.TabIndex = 102;
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            // 
-            // Buscarbutton
-            // 
-            this.Buscarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_búsqueda_24;
-            this.Buscarbutton.Location = new System.Drawing.Point(131, 10);
-            this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(47, 28);
-            this.Buscarbutton.TabIndex = 101;
-            this.Buscarbutton.UseVisualStyleBackColor = true;
-            // 
             // AgregarButton
             // 
             this.AgregarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,8 +163,53 @@
             this.AgregarButton.TabIndex = 110;
             this.AgregarButton.Text = "+";
             this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
-            // Analisis
+            // MyErrorProvider
+            // 
+            this.MyErrorProvider.ContainerControl = this;
+            // 
+            // Eliminarbutton
+            // 
+            this.Eliminarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_eliminar_26;
+            this.Eliminarbutton.Location = new System.Drawing.Point(157, 179);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(57, 49);
+            this.Eliminarbutton.TabIndex = 104;
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
+            // 
+            // Nuevobutton
+            // 
+            this.Nuevobutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.New_File_36861_1_;
+            this.Nuevobutton.Location = new System.Drawing.Point(13, 179);
+            this.Nuevobutton.Name = "Nuevobutton";
+            this.Nuevobutton.Size = new System.Drawing.Size(57, 49);
+            this.Nuevobutton.TabIndex = 103;
+            this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
+            // 
+            // Guardarbutton
+            // 
+            this.Guardarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_guardar_48;
+            this.Guardarbutton.Location = new System.Drawing.Point(85, 179);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(57, 49);
+            this.Guardarbutton.TabIndex = 102;
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
+            // 
+            // Buscarbutton
+            // 
+            this.Buscarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_búsqueda_24;
+            this.Buscarbutton.Location = new System.Drawing.Point(131, 10);
+            this.Buscarbutton.Name = "Buscarbutton";
+            this.Buscarbutton.Size = new System.Drawing.Size(47, 28);
+            this.Buscarbutton.TabIndex = 101;
+            this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
+            // 
+            // rAnalisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -207,7 +219,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TipocomboBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.AnalisisDataGridView);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Nuevobutton);
             this.Controls.Add(this.Guardarbutton);
@@ -219,10 +231,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.AnalisisId);
             this.Controls.Add(this.IdnumericUpDown);
-            this.Name = "Analisis";
+            this.Name = "rAnalisis";
             this.Text = "Analisis";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AnalisisDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,11 +253,12 @@
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Button Guardarbutton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView AnalisisDataGridView;
         private System.Windows.Forms.ComboBox TipocomboBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox ResultadotextBox;
         private System.Windows.Forms.Button AgregarButton;
+        private System.Windows.Forms.ErrorProvider MyErrorProvider;
     }
 }

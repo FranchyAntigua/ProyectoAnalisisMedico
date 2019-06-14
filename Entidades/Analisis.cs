@@ -10,7 +10,6 @@ namespace ProyectoAnalisisMedico.Entidades
     public class Analisis
     {
         [Key]
-
         public int AnalisisId { get; set; }
         public DateTime Fecha { get; set; }
         public int UsuarioId { get; set; }

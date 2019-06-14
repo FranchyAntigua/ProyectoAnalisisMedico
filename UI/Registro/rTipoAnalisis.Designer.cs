@@ -33,11 +33,11 @@
             this.Descripcion = new System.Windows.Forms.Label();
             this.TipoId = new System.Windows.Forms.Label();
             this.DescripciontextBox = new System.Windows.Forms.TextBox();
+            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,10 @@
             this.DescripciontextBox.Size = new System.Drawing.Size(140, 20);
             this.DescripciontextBox.TabIndex = 108;
             // 
+            // MyErrorProvider
+            // 
+            this.MyErrorProvider.ContainerControl = this;
+            // 
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_eliminar_26;
@@ -86,7 +90,7 @@
             // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_añadir_48_1_;
+            this.Nuevobutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.New_File_36861_1_1;
             this.Nuevobutton.Location = new System.Drawing.Point(24, 87);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(57, 49);
@@ -113,10 +117,6 @@
             this.Buscarbutton.TabIndex = 112;
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
-            // 
-            // MyErrorProvider
-            // 
-            this.MyErrorProvider.ContainerControl = this;
             // 
             // rTipoAnalisis
             // 

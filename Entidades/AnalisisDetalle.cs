@@ -10,7 +10,6 @@ namespace ProyectoAnalisisMedico.Entidades
     public class AnalisisDetalle
     {
         [Key]
-
         public int Id { get; set; }
 
         public int AnalisisId { get; set; }

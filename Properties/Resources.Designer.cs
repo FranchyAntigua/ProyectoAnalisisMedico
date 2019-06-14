@@ -103,6 +103,16 @@ namespace ProyectoAnalisisMedico.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_archivo_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-archivo-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_búsqueda_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-búsqueda-24", resourceCulture);
@@ -246,6 +256,36 @@ namespace ProyectoAnalisisMedico.Properties {
         internal static System.Drawing.Bitmap icons8_más_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-más-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap New_File_36861 {
+            get {
+                object obj = ResourceManager.GetObject("New_File_36861", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap New_File_36861_1_ {
+            get {
+                object obj = ResourceManager.GetObject("New_File_36861(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap New_File_36861_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("New_File_36861(1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
