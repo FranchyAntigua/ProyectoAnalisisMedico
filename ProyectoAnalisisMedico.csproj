@@ -196,5 +196,8 @@
   <ItemGroup>
     <Folder Include="DAL\Script\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New_File_36861%281%292.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

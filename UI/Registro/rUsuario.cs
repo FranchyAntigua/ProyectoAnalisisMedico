@@ -121,7 +121,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            bool paso = false;
+            bool estado = false;
             Usuarios usuario = new Usuarios();
 
             if (Validar())
@@ -136,7 +136,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
 
                 if (Convert.ToInt32(IdNumericUpDown.Value) == 0)
                 {
-                    paso = UsuariosBLL.Guardar(usuario);
+                    estado = UsuariosBLL.Guardar(usuario);
                     MessageBox.Show("Guardado", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Limpiar();
@@ -150,7 +150,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
 
                     if (usu != null)
                     {
-                        paso = UsuariosBLL.Editar(LlenaClase());
+                        estado= UsuariosBLL.Editar(LlenaClase());
                         MessageBox.Show("Modificado", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -159,7 +159,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                if (paso)
+                if (estado)
                 {
                     Limpiar();
                 }

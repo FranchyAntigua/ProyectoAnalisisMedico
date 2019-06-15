@@ -172,7 +172,7 @@
             // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_añadir_48_1_;
+            this.Nuevobutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.New_File_36861_1_2;
             this.Nuevobutton.Location = new System.Drawing.Point(25, 208);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(57, 49);

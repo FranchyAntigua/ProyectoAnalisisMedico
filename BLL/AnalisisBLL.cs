@@ -37,16 +37,29 @@ namespace ProyectoAnalisisMedico.BLL
             Contexto contexto = new Contexto();
             try
             {
-                contexto.Entry(analisis).State = EntityState.Modified;
-                if (contexto.SaveChanges() > 0)
+                var anterior = contexto.Analisis.Find(analisis.UsuarioId);
+
+                foreach (var item in analisis.Detalle)
                 {
-                    estado = true;
+
+                    if (!analisis.Detalle.Exists(d => d.Id == item.Id))
+
+                        contexto.Entry(item).State = EntityState.Deleted;
+
                 }
-                contexto.Dispose();
+
+                contexto.Entry(analisis).State = EntityState.Modified;
+
+                estado = (contexto.SaveChanges() > 0);
             }
+
             catch (Exception)
             {
                 throw;
+            }
+            finally
+            {
+                contexto.Dispose();
             }
             return estado;
         }
@@ -81,7 +94,13 @@ namespace ProyectoAnalisisMedico.BLL
             try
             {
                 analisis = contexto.Analisis.Find(id);
-                analisis.Detalle.Count();
+
+                if (analisis != null)
+                {
+                   
+                    analisis.Detalle.Count();
+                }
+
             }
             catch (Exception)
             {

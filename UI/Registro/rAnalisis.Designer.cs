@@ -219,6 +219,7 @@
             this.RemoverButton.TabIndex = 111;
             this.RemoverButton.Text = "Remover";
             this.RemoverButton.UseVisualStyleBackColor = true;
+            this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
             // 
             // rAnalisis
             // 

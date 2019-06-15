@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,11 @@ namespace ProyectoAnalisisMedico.Entidades
 
         public string Resultado { get; set; }
 
+        //[ForeignKey("AnalisisId")]
+        //public virtual Analisis Analisis { get; set; }
 
+        //[ForeignKey("TipoId")]
+        //public virtual TiposAnalisis Tipo { get; set; }
         public AnalisisDetalle()
         {
             Id = 0;

@@ -34,6 +34,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
 
         private void LlenarComboBox()
         {
+
             Repositorio<Usuarios> repositorioU = new Repositorio<Usuarios>();
             Repositorio<TiposAnalisis> repositorioT = new Repositorio<TiposAnalisis>();
 
@@ -103,25 +104,35 @@ namespace ProyectoAnalisisMedico.UI.Registro
                     "No puede estar vacio");
                 return;
             }
-            else if (AnalisisDataGridView.DataSource != null)
+            if (AnalisisDataGridView.DataSource != null)
             {
                 detalle = (List<AnalisisDetalle>)AnalisisDataGridView.DataSource;
-            }            
-            else
-            {
-                detalle.Add(
+            }
+            detalle.Add(
                new AnalisisDetalle(
                    id: 0,
                    analisisId: (int)IdnumericUpDown.Value,
                    tipoId: (int)TipocomboBox.SelectedValue,
                    descripcion: TipocomboBox.Text,
                    resultado: ResultadotextBox.Text
-               ));                
+               ));
+
+            AnalisisDataGridView.DataSource = null;
+            AnalisisDataGridView.DataSource = detalle;
+            AnalisisDataGridView.Columns["Id"].Visible = false;
+            AnalisisDataGridView.Columns["AnalisisId"].Visible = false;
+
+        }
+        private void RemoverButton_Click(object sender, EventArgs e)
+        {
+            if (AnalisisDataGridView.Rows.Count > 0 && AnalisisDataGridView.CurrentRow != null)
+            {
+                List<AnalisisDetalle> detalle = (List<AnalisisDetalle>)AnalisisDataGridView.DataSource;
+
+                detalle.RemoveAt(AnalisisDataGridView.CurrentRow.Index);
 
                 AnalisisDataGridView.DataSource = null;
                 AnalisisDataGridView.DataSource = detalle;
-                AnalisisDataGridView.Columns["Id"].Visible = false;
-                AnalisisDataGridView.Columns["AnalisisId"].Visible = false;
             }
         }
 
@@ -147,7 +158,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             Analisis analisis;
-            bool Paso = false;
+            bool estado= false;
 
             if (Validar())
             {
@@ -160,7 +171,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
 
             if (IdnumericUpDown.Value == 0)
             {
-                Paso = AnalisisBLL.Guardar(analisis);
+                estado= AnalisisBLL.Guardar(analisis);
                 MessageBox.Show("Guardado!!", "Exito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -171,7 +182,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
 
                 if (analisi != null)
                 {
-                    Paso = AnalisisBLL.Editar(analisis);
+                    estado = AnalisisBLL.Editar(analisis);
                     MessageBox.Show("Modificado!!", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -180,7 +191,7 @@ namespace ProyectoAnalisisMedico.UI.Registro
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (Paso)
+            if (estado)
             {
                 Limpiar();
             }
