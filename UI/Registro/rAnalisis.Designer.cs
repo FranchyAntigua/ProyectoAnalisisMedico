@@ -43,11 +43,11 @@
             this.ResultadotextBox = new System.Windows.Forms.TextBox();
             this.AgregarButton = new System.Windows.Forms.Button();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.RemoverButton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.RemoverButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalisisDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
@@ -170,6 +170,17 @@
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
+            // RemoverButton
+            // 
+            this.RemoverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoverButton.Location = new System.Drawing.Point(123, 163);
+            this.RemoverButton.Name = "RemoverButton";
+            this.RemoverButton.Size = new System.Drawing.Size(71, 30);
+            this.RemoverButton.TabIndex = 111;
+            this.RemoverButton.Text = "Remover";
+            this.RemoverButton.UseVisualStyleBackColor = true;
+            this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
+            // 
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::ProyectoAnalisisMedico.Properties.Resources.icons8_eliminar_26;
@@ -210,17 +221,6 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
-            // RemoverButton
-            // 
-            this.RemoverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoverButton.Location = new System.Drawing.Point(123, 163);
-            this.RemoverButton.Name = "RemoverButton";
-            this.RemoverButton.Size = new System.Drawing.Size(71, 30);
-            this.RemoverButton.TabIndex = 111;
-            this.RemoverButton.Text = "Remover";
-            this.RemoverButton.UseVisualStyleBackColor = true;
-            this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
-            // 
             // rAnalisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,7 +245,7 @@
             this.Controls.Add(this.AnalisisId);
             this.Controls.Add(this.IdnumericUpDown);
             this.Name = "rAnalisis";
-            this.Text = "Analisis";
+            this.Text = "Registro Analisis";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalisisDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();

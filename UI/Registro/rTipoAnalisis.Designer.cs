@@ -132,7 +132,7 @@
             this.Controls.Add(this.TipoId);
             this.Controls.Add(this.DescripciontextBox);
             this.Name = "rTipoAnalisis";
-            this.Text = "rTipoAnalisis";
+            this.Text = "Tipo Analisis";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
